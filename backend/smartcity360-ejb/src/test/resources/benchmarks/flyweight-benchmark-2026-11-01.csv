@@ -1,0 +1,4 @@
+streetlights,profiles,naive_config_allocations,flyweight_config_allocations,naive_dataset_retained_bytes,flyweight_dataset_retained_bytes,naive_median_ns,flyweight_median_ns,jvm
+1000,10,1000,10,532352,263072,437601,625301,"Java HotSpot(TM) 64-Bit Server VM 17.0.15"
+10000,10,10000,10,5392352,2675072,2494000,1992900,"Java HotSpot(TM) 64-Bit Server VM 17.0.15"
+50000,10,50000,10,26992352,13395072,4313899,3146500,"Java HotSpot(TM) 64-Bit Server VM 17.0.15"

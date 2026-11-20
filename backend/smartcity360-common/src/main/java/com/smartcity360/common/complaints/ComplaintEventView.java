@@ -1,0 +1,1 @@
+package com.smartcity360.common.complaints; import java.time.OffsetDateTime;import java.util.*;public record ComplaintEventView(UUID id,UUID complaintId,UUID actorUserId,String action,String fromLevel,String toLevel,String note,OffsetDateTime occurredAt){}

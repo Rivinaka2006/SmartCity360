@@ -1,0 +1,3 @@
+package com.smartcity360.common.complaints;import java.util.*;public interface ComplaintService{
+ ComplaintView submit(ComplaintSubmitCommand command);ComplaintView get(UUID id);List<ComplaintView> my(int offset,int limit);List<ComplaintView> list(String status,String severity,int offset,int limit);List<ComplaintView> queue(int offset,int limit);List<ComplaintEventView> history(UUID id,int offset,int limit);ComplaintView assign(UUID id,AssignmentCommand command);ComplaintView start(UUID id);ComplaintView escalate(UUID id,EscalationCommand command);ComplaintView resolve(UUID id,ResolutionCommand command);
+}

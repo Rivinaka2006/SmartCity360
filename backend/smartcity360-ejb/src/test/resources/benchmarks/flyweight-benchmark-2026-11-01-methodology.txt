@@ -1,0 +1,9 @@
+JVM: Java HotSpot(TM) 64-Bit Server VM 17.0.15
+JVM arguments: -Xmx1536m
+Distinct profiles: 10
+Warmups: 2
+Measured repetitions: 5 (median reported)
+Retained bytes: JOL graph reachable from the complete List<BenchStreetlight> root; estimate only.
+Timing: construction of contexts, configuration resolution/allocation, and holders; not a JMH throughput claim.
+Execution: mvn -f backend/pom.xml -Pflyweight-benchmark -pl smartcity360-ejb -am -Dtest=StreetlightFlyweightBenchmarkTest -Dsurefire.failIfNoSpecifiedTests=false -DargLine=-Xmx1536m test
+Environment: reserve at least 2 GiB of free physical/commit memory; close Payara or other large JVMs first.

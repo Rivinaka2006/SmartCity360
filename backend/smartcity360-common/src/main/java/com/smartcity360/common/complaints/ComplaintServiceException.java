@@ -1,0 +1,1 @@
+package com.smartcity360.common.complaints;public class ComplaintServiceException extends RuntimeException{private final String code;public ComplaintServiceException(String code){super(code);this.code=code;}public String code(){return code;}}

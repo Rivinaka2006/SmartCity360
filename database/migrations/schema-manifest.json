@@ -1,0 +1,16 @@
+{
+  "catalogFingerprint": {
+    "tablesMd5": "dc3bbe09f86148aeeef715eec9c2f1e0",
+    "columnsMd5": "03f2a479fb4b3281ecdbf4914de5de41",
+    "constraintsMd5": "5ed25a93846ad9809977b0aae4e389a6",
+    "indexesMd5": "d420616944a0f45f3f33e05f4a4997b3",
+    "rolesMd5": "78a2071b6282bc8339c77c28c6070ffd"
+  },
+  "migrations": [
+    { "version": 1, "file": "V001__create_migration_ledger.sql", "description": "create migration ledger", "sha256": "bb99faee1e949c9c5e907c94fad34df92bff241af8e0ed30a6ea81719d131ad2" },
+    { "version": 2, "file": "V002__create_application_schema.sql", "description": "create application schema", "sha256": "5899ef60235009180630c111d10874f35552ad51fdffa4c15d2b5d96f7aacc26" },
+    { "version": 3, "file": "V003__seed_initial_roles.sql", "description": "seed initial roles", "sha256": "d0a719d9ed6511c898b38b480910a0dd9035c837e0a19d2cbf6dc2e3f25f67af" },
+    { "version": 4, "file": "V004__enforce_zone_invariants.sql", "description": "enforce zone invariants", "sha256": "0cee8cd288bfd66e8da4d164ce35552c51ad7b91a86bd01c0612e9fac4d9ca66" },
+    { "version": 5, "file": "V005__add_energy_meter_credential_references.sql", "description": "add energy meter credential references", "sha256": "6c2247d0b4c4236dac18c2f581538c4db27d1cd6c7550989ac0467aa411f951e" }
+  ]
+}

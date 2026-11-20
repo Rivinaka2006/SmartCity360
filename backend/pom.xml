@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.smartcity360</groupId>
+        <artifactId>smartcity360</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>smartcity360-backend</artifactId>
+    <packaging>pom</packaging>
+    <name>SmartCity360 Backend</name>
+
+    <modules>
+        <module>smartcity360-common</module>
+        <module>smartcity360-ejb</module>
+        <module>smartcity360-web</module>
+        <module>smartcity360-ear</module>
+    </modules>
+
+    <properties>
+        <jakartaee.version>10.0.0</jakartaee.version>
+        <junit.version>5.13.4</junit.version>
+        <microprofile.config.version>3.1.1</microprofile.config.version>
+        <maven.compiler.plugin.version>3.16.0</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.6.1</maven.surefire.plugin.version>
+        <maven.ejb.plugin.version>3.3.0</maven.ejb.plugin.version>
+        <maven.war.plugin.version>3.5.1</maven.war.plugin.version>
+        <maven.ear.plugin.version>3.4.0</maven.ear.plugin.version>
+        <surefire.excludedGroups>benchmark</surefire.excludedGroups>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.smartcity360</groupId>
+                <artifactId>smartcity360-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.smartcity360</groupId>
+                <artifactId>smartcity360-ejb</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+                <groupId>com.smartcity360</groupId>
+                <artifactId>smartcity360-web</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-api</artifactId>
+                <version>${jakartaee.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.microprofile.config</groupId>
+                <artifactId>microprofile-config-api</artifactId>
+                <version>${microprofile.config.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin.version}</version>
+                    <configuration>
+                        <release>${maven.compiler.release}</release>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin.version}</version>
+                    <configuration>
+                        <useModulePath>false</useModulePath>
+                        <excludedGroups>${surefire.excludedGroups}</excludedGroups>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ejb-plugin</artifactId>
+                    <version>${maven.ejb.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven.war.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <version>${maven.ear.plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>flyweight-benchmark</id>
+            <properties>
+                <!-- No production test uses this sentinel tag; the explicit -Dtest selects the benchmark. -->
+                <surefire.excludedGroups>not-a-test-tag</surefire.excludedGroups>
+            </properties>
+        </profile>
+    </profiles>
+</project>

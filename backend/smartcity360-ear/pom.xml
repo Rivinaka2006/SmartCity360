@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.smartcity360</groupId>
+        <artifactId>smartcity360-backend</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>smartcity360-ear</artifactId>
+    <packaging>ear</packaging>
+    <name>SmartCity360 Enterprise Application</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.smartcity360</groupId>
+            <artifactId>smartcity360-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.smartcity360</groupId>
+            <artifactId>smartcity360-ejb</artifactId>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>com.smartcity360</groupId>
+            <artifactId>smartcity360-web</artifactId>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <version>10</version>
+                    <generateApplicationXml>false</generateApplicationXml>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <skinnyWars>true</skinnyWars>
+                    <modules>
+                        <jarModule>
+                            <groupId>com.smartcity360</groupId>
+                            <artifactId>smartcity360-common</artifactId>
+                            <bundleDir>lib</bundleDir>
+                            <bundleFileName>smartcity360-common.jar</bundleFileName>
+                            <includeInApplicationXml>false</includeInApplicationXml>
+                        </jarModule>
+                        <ejbModule>
+                            <groupId>com.smartcity360</groupId>
+                            <artifactId>smartcity360-ejb</artifactId>
+                            <bundleFileName>smartcity360-ejb.jar</bundleFileName>
+                        </ejbModule>
+                        <webModule>
+                            <groupId>com.smartcity360</groupId>
+                            <artifactId>smartcity360-web</artifactId>
+                            <bundleFileName>smartcity360-web.war</bundleFileName>
+                            <contextRoot>/smartcity360</contextRoot>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
