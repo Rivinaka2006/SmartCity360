@@ -1,7 +1,5 @@
 # SmartCity360 — Final Assessment Evidence Extraction
 
-**Scope and method.** Read-only source-tree inspection on 2026-11-08, refreshed on 2026-11-10. This is a traceability reference, not an academic report or a claim that runtime tests were rerun unless explicitly labelled **VERIFIED FROM TEST RESULTS**. Paths below are repository-relative. No credentials, keys, tokens, deployment, database, builds, tests, or application sources were changed.
-
 ## 1. Verified architecture
 
 | Area | Evidence |
